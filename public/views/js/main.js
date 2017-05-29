@@ -425,7 +425,6 @@ var resizePizzas = function(size) {
     }else if(size==="3"){
       classname += " big";
     }
-    console.log(size,classname);
     for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
      randomPizzaContainer[i].className = classname;
     }
@@ -443,8 +442,8 @@ var resizePizzas = function(size) {
 window.performance.mark("mark_start_generating"); // collect timing data
 
 // This for-loop actually creates and appends all of the pizzas when the page loads
+var pizzasDiv = document.getElementById("randomPizzas");
 for (var i = 2; i < 100; i++) {
-  var pizzasDiv = document.getElementById("randomPizzas");
   pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
 
@@ -473,8 +472,6 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 
 // Moves the sliding background pizzas based on scroll position
 function updatePositions(e) {
-  //console.log(e);
-  //console.log(frame);
   frame++;
   window.performance.mark("mark_start_frame");
   var scroll=document.body.scrollTop / 1250;
@@ -495,12 +492,12 @@ function updateFame(){
   requestAnimationFrame(updatePositions);
 }
 window.addEventListener('scroll', updateFame);
-var items=[];
 // Generates the sliding pizzas when the page loads.
 var cols = 8;
 var s = 256;
 var elem;
 var movingPizzas1=document.querySelector("#movingPizzas1");
+var items=[];
 for (var i = 0; i < 200; i++) {
   elem = document.createElement('div');
   elem.basicLeft = (i % cols) * s;
