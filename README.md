@@ -1,6 +1,6 @@
 ## Website Performance Optimization portfolio project
 
-Download the project, and then `npm install`. After install running `gulp serve` to view the web.
+Download the project, and then `npm install`. After install running `gulp serve` and copy `http://localhost/` to view the web.
 
  `public` is the original web and `dist` is the minized web.
 

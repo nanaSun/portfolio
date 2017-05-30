@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var connect = require('gulp-connect');
+var port=80;
 
 var connectServer = function() {
   return connect.server({
