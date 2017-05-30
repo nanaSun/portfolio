@@ -395,18 +395,18 @@ var pizzaElementGenerator = function(i) {
 // resizePizzas(size) is called when the slider in the "Our Pizzas" section of the website moves.
 var resizePizzas = function(size) {
   window.performance.mark("mark_start_resize");   // User Timing API function
-
+  var randomPizzaContainer= document.getElementsByClassName("randomPizzaContainer");
   // Changes the value for the size of the pizza above the slider
   function changeSliderLabel(size) {
     switch(size) {
       case "1":
-        document.querySelector("#pizzaSize").innerHTML = "Small";
+        document.getElementById("pizzaSize").innerHTML = "Small";
         return;
       case "2":
-        document.querySelector("#pizzaSize").innerHTML = "Medium";
+        document.getElementById("pizzaSize").innerHTML = "Medium";
         return;
       case "3":
-        document.querySelector("#pizzaSize").innerHTML = "Large";
+        document.getElementById("pizzaSize").innerHTML = "Large";
         return;
       default:
         console.log("bug in changeSliderLabel");
@@ -418,14 +418,13 @@ var resizePizzas = function(size) {
 
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
-    var randomPizzaContainer= document.querySelectorAll(".randomPizzaContainer");
     var classname="randomPizzaContainer";
     if(size==="1"){
       classname += " small";
     }else if(size==="3"){
       classname += " big";
     }
-    for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
+    for (var i = 0; i < randomPizzaContainer.length; i++) {
      randomPizzaContainer[i].className = classname;
     }
   }
@@ -493,12 +492,17 @@ function updateFame(){
 }
 window.addEventListener('scroll', updateFame);
 // Generates the sliding pizzas when the page loads.
+// calculate how many pizzas we need to cover the screen
 var cols = 8;
+var rows = Math.ceil(window.innerHeight/100);
+var elemNum = cols*rows;
+
 var s = 256;
 var elem;
-var movingPizzas1=document.querySelector("#movingPizzas1");
+var movingPizzas1=document.getElementById("movingPizzas1");
 var items=[];
-for (var i = 0; i < 200; i++) {
+
+for (var i = 0; i < elemNum; i++) {
   elem = document.createElement('div');
   elem.basicLeft = (i % cols) * s;
   elem.style.top = (Math.floor(i / cols) * s) + 'px';

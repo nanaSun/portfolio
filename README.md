@@ -1,5 +1,7 @@
 ## Website Performance Optimization portfolio project
 
+Download the project, and then `npm install`. After install running `gulp serve` to view the web.
+
  `public` is the original web and `dist` is the minized web.
 
 * Firstly, tackling with the HTML with stylesheets order, I put the basic style(bootstrap-grid) first before customized style(style.css).
@@ -17,3 +19,21 @@
     * Using `requestAnimationFrame` to improve the speed.
             
 * Finally, minimize all files including images in the project by using gulp. 
+
+New optimization.
+
+`index.html`
+
+* Put all the src in the head to the bottom of HTML. And add tag media="print"  to print.css, because we do not need it in common.
+
+* Add a thumbnail pic of pizzeria.jpg named pizzeria_ss.jpg, the same width with it's container's width.
+
+* Remove extra style in DOM.
+
+`main.js`
+
+* remove all the querySelector() function, and replace it with getElementById and getElementsByClassNames 
+
+* reduce the small pizza, calculate how many pizzas can cover the screen. 
+
+
