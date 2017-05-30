@@ -1,5 +1,7 @@
 ## Website Performance Optimization portfolio project
 
+ `public` is the original web and `dist` is the minized web.
+
 * Firstly, tackling with the HTML with stylesheets order, I put the basic style(bootstrap-grid) first before customized style(style.css).
 
 * Secondly, I will tackling with js and css, which is the most important part.
